@@ -1,0 +1,185 @@
+{
+    "definitions": [
+        {
+            "title": "Recommendations",
+            "id": "recommendations",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block",
+                        "template": {
+                            "name": "Recommendations",
+                            "model": "recommendations",
+                            "heading": "Recommended for You",
+                            "headingType": "h2",
+                            "description": "Discover content tailored to your interests and experience level.",
+                            "filterProductBy": "all_adobe_products",
+                            "sortBy": "RELEVANCE",
+                            "maxItems": "4"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "recommendations",
+            "fields": [
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "heading",
+                    "value": "",
+                    "label": "Heading",
+                    "description": "Sets the heading for the recommendations block."
+                },
+                {
+                    "component": "select",
+                    "valueType": "string",
+                    "name": "headingType",
+                    "value": "h2",
+                    "label": "Heading Type",
+                    "options": [
+                        {
+                            "name": "H1",
+                            "value": "h1"
+                        },
+                        {
+                            "name": "H2",
+                            "value": "h2"
+                        },
+                        {
+                            "name": "H3",
+                            "value": "h3"
+                        },
+                        {
+                            "name": "H4",
+                            "value": "h4"
+                        },
+                        {
+                            "name": "H5",
+                            "value": "h5"
+                        },
+                        {
+                            "name": "H6",
+                            "value": "h6"
+                        }
+                    ]
+                },
+                {
+                    "component": "richtext",
+                    "valueType": "string",
+                    "name": "description",
+                    "value": "",
+                    "label": "Description",
+                    "description": "Sets the description for the recommendations block."
+                },
+                {
+                    "component": "multiselect",
+                    "valueType": "string",
+                    "name": "contentTypes",
+                    "label": "Filter by Content Type",
+                    "description": "Select the content type(s) to recommend.",
+                    "options": [
+                        {
+                            "name": "Certification",
+                            "value": "certification"
+                        },
+                        {
+                            "name": "Communities",
+                            "value": "community"
+                        },
+                        {
+                            "name": "Documentation",
+                            "value": "documentation"
+                        },
+                        {
+                            "name": "On-Demand Event",
+                            "value": "event"
+                        },
+                        {
+                            "name": "Perspectives",
+                            "value": "perspective"
+                        },
+                        {
+                            "name": "Playlists",
+                            "value": "playlist"
+                        },
+                        {
+                            "name": "Troubleshooting",
+                            "value": "troubleshooting"
+                        },
+                        {
+                            "name": "Tutorials",
+                            "value": "tutorial"
+                        }
+                    ]
+                },
+                {
+                    "component": "radio-group",
+                    "name": "filterProductBy",
+                    "value": "all_adobe_products",
+                    "label": "Filter Product By:",
+                    "valueType": "string",
+                    "options": [
+                        {
+                            "name": "All Adobe Products",
+                            "value": "all_adobe_products"
+                        },
+                        {
+                            "name": "Profile Context",
+                            "value": "profile_context"
+                        }
+                    ]
+                },
+                {
+                    "component": "radio-group",
+                    "name": "sortBy",
+                    "value": "RELEVANCE",
+                    "label": "Sort by",
+                    "valueType": "string",
+                    "options": [
+                        {
+                            "name": "Relevance",
+                            "value": "RELEVANCE"
+                        },
+                        {
+                            "name": "Most recent",
+                            "value": "MOST_RECENT"
+                        },
+                        {
+                            "name": "Most popular",
+                            "value": "MOST_POPULAR"
+                        }
+                    ]
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "linkText",
+                    "value": "",
+                    "label": "Link text",
+                    "description": "Sets the text for the 'view more' link."
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "link",
+                    "value": "",
+                    "label": "Link URL",
+                    "description": "Sets the URL for the 'view more' link."
+                },
+                {
+                    "component": "text",
+                    "valueType": "number",
+                    "name": "maxItems",
+                    "value": "4",
+                    "label": "Maximum Items",
+                    "description": "Maximum number of recommendations to display (default: 4)."
+                }
+            ]
+        }
+    ],
+    "filters": []
+}

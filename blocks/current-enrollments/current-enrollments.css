@@ -1,0 +1,411 @@
+/* Current Enrollments Block Styles */
+
+.current-enrollments-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Loading State */
+.enrollments-loading {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--link-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enrollments-loading h2 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.enrollments-loading p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+}
+
+/* Error State */
+.enrollments-error {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.enrollments-error h2 {
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+.enrollments-error p {
+  color: #7f1d1d;
+  margin-bottom: 20px;
+}
+
+.retry-btn {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.retry-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* Empty State */
+.enrollments-empty {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: var(--light-color);
+  border-radius: 12px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.enrollments-empty h2 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.enrollments-empty p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  max-width: 400px;
+  margin: 0 auto 10px;
+}
+
+/* Header */
+.enrollments-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.enrollments-header h1 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-size: var(--heading-font-size-xl);
+}
+
+.enrollment-count {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+}
+
+/* Enrollments Grid */
+.enrollments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Enrollment Card */
+.enrollment-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  border: 1px solid #e5e7eb;
+  animation: fade-in-up 0.5s ease-out;
+}
+
+.enrollment-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+}
+
+/* Card Header */
+.card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--link-color), var(--link-hover-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+}
+
+.card-status {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.enrolled {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.started {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-badge.completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.unknown {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+/* Card Content */
+.card-content {
+  padding: 16px;
+}
+
+.course-title {
+  font-size: var(--heading-font-size-xs);
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 8px;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.course-description {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+  margin: 0 0 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Course Meta */
+.course-meta {
+  margin-bottom: 12px;
+}
+
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.meta-label {
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.meta-value {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--link-color), var(--link-hover-color));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 11px;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+/* Course Tags */
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background-color: #f3f4f6;
+  color: var(--dark-color);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Card Actions */
+.card-actions {
+  padding: 0 16px 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  text-decoration: none;
+  background-color: var(--link-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--link-hover-color);
+  transform: translateY(-1px);
+  color: white;
+  text-decoration: none;
+}
+
+/* Override default link styles for button-styled anchors */
+.btn-primary:any-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (width <= 768px) {
+  .current-enrollments-container {
+    padding: 16px;
+  }
+
+  .enrollments-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .enrollment-card {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    padding: 0 12px 12px;
+  }
+}
+
+@media (width <= 480px) {
+  .enrollments-header h1 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+}
+
+/* Stagger animation for multiple cards */
+.enrollment-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.enrollment-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.enrollment-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.enrollment-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.enrollment-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.enrollment-card:nth-child(6) {
+  animation-delay: 0.6s;
+}

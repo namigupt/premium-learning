@@ -1,1 +1,32 @@
-/* add global styles that can be loaded post LCP here */
+/* Lazy-loaded styles */
+
+/* These styles are loaded after the main styles.css file */
+
+/* Use this file for non-critical styles that can be deferred */
+
+/* Example: Animation styles */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+/* Example: Additional decorative styles */
+
+.decorative-shadow {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+}
+
+.decorative-border {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}

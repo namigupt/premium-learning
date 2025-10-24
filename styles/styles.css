@@ -11,6 +11,8 @@
  */
 
 :root {
+  font-size: 62.5%;
+
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;
@@ -18,10 +20,16 @@
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
+  --badge-background: #E9E9E9;
+
+  /* Base colors */
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-transparent: transparent;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: "Adobe Clean", adobe-clean, "Source Sans Pro", -apple-system, system-ui, "Segoe UI", roboto, ubuntu, "Trebuchet MS", "Lucida Grande", sans-serif;
+  --heading-font-family: var(--body-font-family);
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -38,6 +46,54 @@
 
   /* nav height */
   --nav-height: 64px;
+  --spacing-1: 0.1rem;
+  --spacing-2: 0.2rem;
+  --spacing-4: 0.4rem;
+  --spacing-6: 0.6rem;
+  --spacing-8: 0.8rem;
+  --spacing-10: 1rem;
+  --spacing-12: 1.2rem;
+  --spacing-14: 1.4rem;
+  --spacing-16: 1.6rem;
+  --spacing-18: 1.8rem;
+  --spacing-20: 2rem;
+  --spacing-24: 2.4rem;
+  --spacing-32: 3.2rem;
+  --spacing-40: 4rem; 
+  --spacing-50: 5rem;
+  --spacing-84: 8.4rem;
+
+  /* Border Radius */
+  --border-1: 0.1rem;
+  --border-2: 0.2rem;
+  --border-4: 0.4rem;
+  --border-6: 0.6rem;
+  --border-8: 0.8rem;
+  --border-12: 1.2rem;
+  --border-16: 1.6rem;
+
+  /* Font weights */
+      --font-weight-thin: 100;
+    --font-weight-extra-light: 200;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extra-bold: 800;
+    --font-weight-heavy: 900;
+
+  /* Font sizes */
+  --font-size-xl: 2rem;
+  --font-size-lg: 1.8rem;
+  --font-size-md: 1.6rem;
+  --font-size-sm: 1.2rem;
+  --font-size-xs: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Fully transparent */
 }
 
 /* fallback fonts */
@@ -93,8 +149,8 @@ footer .footer {
   visibility: hidden;
 }
 
-header .header[data-block-status="loaded"],
-footer .footer[data-block-status="loaded"] {
+header .header[data-block-status='loaded'],
+footer .footer[data-block-status='loaded'] {
   visibility: visible;
 }
 
@@ -112,12 +168,29 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
 p,
 dl,
@@ -142,8 +215,37 @@ pre {
   white-space: pre;
 }
 
+/* sections */
+main > .section {
+  margin: 40px 0;
+}
+
 main > div {
   margin: 40px 16px;
+}
+
+main > .section > div {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 32px;
+  }
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+/* section metadata */
+main .section.light,
+main .section.highlight {
+  background-color: var(--light-color);
+  margin: 0;
+  padding: 40px 0;
 }
 
 input,
@@ -225,33 +327,4 @@ main img {
 .icon img {
   height: 100%;
   width: 100%;
-}
-
-/* sections */
-main > .section {
-  margin: 40px 0;
-}
-
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
-}
-
-main > .section:first-of-type {
-  margin-top: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
-}
-
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
 }

@@ -1,0 +1,187 @@
+.oauth-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  font-family: var(--body-font-family);
+}
+
+.oauth-title {
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.oauth-description {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Button base styles */
+.oauth-login-btn,
+.oauth-clear-btn,
+.oauth-retry-btn {
+  background-color: #1473e6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  min-width: 200px;
+}
+
+/* Clear button specific styles */
+.oauth-clear-btn {
+  background-color: #d32f2f;
+  margin-top: 1rem;
+}
+
+/* Retry button specific styles */
+.oauth-retry-btn {
+  background-color: #ff9800;
+}
+
+/* Button hover states */
+.oauth-login-btn:hover {
+  background-color: #0d5dbf;
+}
+
+.oauth-clear-btn:hover {
+  background-color: #b71c1c;
+}
+
+.oauth-retry-btn:hover {
+  background-color: #f57c00;
+}
+
+/* Button active states */
+.oauth-login-btn:active,
+.oauth-clear-btn:active,
+.oauth-retry-btn:active {
+  background-color: #0a4a99;
+}
+
+.oauth-loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.oauth-loading p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.oauth-success {
+  text-align: center;
+}
+
+.oauth-success-title {
+  color: #2d7d32;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.oauth-success p {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.oauth-token-info {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  text-align: left;
+  padding: 1rem;
+}
+
+.oauth-token-info h3 {
+  color: var(--heading-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.oauth-token-info p {
+  margin: 0.5rem 0;
+  font-family: monospace;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+.oauth-token-info strong {
+  color: var(--heading-color);
+  font-family: var(--body-font-family);
+}
+
+.oauth-error {
+  text-align: center;
+}
+
+.oauth-error-title {
+  color: #d32f2f;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.oauth-error p {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+/* Loading animation */
+.oauth-loading::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #1473e6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (width <= 768px) {
+  .oauth-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .oauth-login-btn,
+  .oauth-clear-btn,
+  .oauth-retry-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}

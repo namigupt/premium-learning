@@ -1,0 +1,361 @@
+/* Header actions container styles */
+.header-actions-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+
+
+
+@media (width <= 768px) {
+  .header-actions-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+
+
+
+/* Button styles */
+.btn-enroll-header,
+.btn-wishlist-header,
+.btn-bookmark-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  gap: 8px;
+}
+
+
+
+
+.btn-enroll-header {
+  background-color: #1473e6;
+  color: white;
+  min-width: 120px;
+  padding: 10px 24px;
+}
+
+
+
+.btn-enroll-header:hover {
+background-color: #0d66d0;
+}
+
+
+
+
+
+.btn-wishlist-header {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+
+
+
+.btn-wishlist-header:hover {
+  background-color: #e9e9e9;
+}
+
+
+
+
+.btn-bookmark-header {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+
+.btn-bookmark-header:hover {
+  background-color: #f5f5f5;
+}
+
+
+
+
+.btn-bookmark-header.bookmarked {
+  color: #f5a623;
+}
+
+
+
+
+.btn-wishlist-header.bookmarked {
+  background-color: #fff4e5;
+  color: #b95000;
+  border-color: #f5a623;
+}
+
+
+
+
+/* Enrollment message styles */
+.enrollment-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  z-index: 1000;
+  min-width: 300px;
+  max-width: 400px;
+  animation: slide-in 0.3s ease-out;
+}
+
+
+
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+
+
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+
+
+
+.enrollment-message.success {
+  background-color: #e3fcef;
+  border-left: 4px solid #00a651;
+  color: #00693e;
+}
+
+
+
+
+.enrollment-message.error {
+  background-color: #ffeaea;
+  border-left: 4px solid #ff5252;
+  color: #d32f2f;
+}
+
+
+
+
+.enrollment-message-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+
+
+.enrollment-message-content svg {
+  flex-shrink: 0;
+}
+
+
+
+
+.enrollment-message-content span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+
+
+
+.close-message {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  opacity: 0.7;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+
+
+
+.close-message:hover {
+  opacity: 1;
+  background-color: rgb(0 0 0 / 5%);
+}
+
+
+
+
+/* Enroll button styles */
+.btn-enroll-header {
+  background-color: #1473e6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  min-width: 150px;
+  width: auto;
+}
+
+
+
+
+.btn-enroll-header svg {
+  flex-shrink: 0;
+}
+
+
+
+
+.btn-enroll-header:active {
+  background-color: #095aba;
+}
+
+
+
+
+.btn-enroll-header:disabled {
+  background-color: #b3b3b3;
+  cursor: not-allowed;
+}
+
+
+
+
+/* Enrollment status indicator and unenroll button */
+.enrollment-status-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+
+
+.enrollment-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 16px;
+}
+
+
+
+
+.btn-unenroll {
+  background-color: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+
+
+
+.btn-unenroll:hover {
+  background-color: #f8d7da;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+
+
+
+.btn-unenroll svg {
+  flex-shrink: 0;
+}
+
+
+
+
+.enrollment-status.enrolled {
+  background-color: #e3fcef;
+  color: #00693e;
+}
+
+
+
+
+.enrollment-status.not-enrolled {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+
+
+
+.enrollment-status.in-progress {
+  background-color: #fff4e5;
+  color: #b95000;
+}
+
+
+
+
+.enrollment-status.completed {
+  background-color: #e3fcef;
+  color: #00693e;
+}
+
+
+
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .enrollment-message {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+  }}}}

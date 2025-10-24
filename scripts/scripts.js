@@ -11,6 +11,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import decorate from './oauth/oauth.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -86,10 +87,65 @@ export function decorateMain(main) {
 }
 
 /**
+ * Initialize OAuth for SSO
+ * @returns {Promise<boolean>} Promise that resolves when SSO check is complete
+ */
+function initializeOAuth() {
+  return new Promise((resolve) => {
+    // Check if we already have a valid token
+    const existingToken = sessionStorage.getItem('alm_access_token');
+
+    if (existingToken) {
+      // Already authenticated, continue loading
+      resolve(true);
+      return;
+    }
+
+    // Check if we have an authorization code in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const authCode = urlParams.get('code');
+    const error = urlParams.get('error');
+
+    if (error) {
+      // OAuth Error occurred - continue loading
+      resolve(false);
+      return;
+    }
+
+    if (authCode) {
+      // We have an auth code, let the oauth.js handle it
+      // Create a temporary div to pass to the OAuth decorator
+      const oauthBlock = document.createElement('div');
+      oauthBlock.classList.add('oauth');
+      // Call the OAuth decorator to handle the code exchange
+      decorate(oauthBlock);
+      // Continue loading as the token exchange happens in background
+      resolve(true);
+    } else {
+      // No token and no auth code, we need to start the OAuth flow
+      // This will redirect the user, so we don't need to resolve
+      const oauthBlock = document.createElement('div');
+      oauthBlock.classList.add('oauth');
+      decorate(oauthBlock);
+      // No need to resolve as page will redirect
+    }
+  });
+}
+
+/**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
+  // Initialize OAuth for SSO first and wait for it to complete or redirect
+  if (window.location.href.includes('.ue.') || window.location.href.includes('author-p')) {
+    // eslint-disable-next-line no-console
+    console.log('In Editor Mode');
+  } else {
+    // eslint-disable-next-line no-console
+    console.log('Not Editor Mode');
+    await initializeOAuth();
+  }
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
