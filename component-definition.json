@@ -164,7 +164,10 @@
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
-                "template": {}
+                "template": {
+                  "name": "Suggested Cohort",
+                  "model": "suggested-cohort"
+                }
               }
             }
           }
