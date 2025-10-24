@@ -224,10 +224,15 @@
         "label": "Items",
         "fields": [
           {
-            "component": "text",
-            "name": "text",
-            "label": "Text",
-            "valueType": "string"
+            "component": "multiselect",
+            "name": "style",
+            "label": "Style",
+            "options": [
+              {
+                "name": "Highlight",
+                "value": "highlight"
+              }
+            ]
           }
         ]
       },
