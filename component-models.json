@@ -219,30 +219,17 @@
     "id": "suggested-cohort",
     "fields": [
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "courseId",
-        "label": "Course ID",
-        "value": "",
-        "multi": true
-      },
-      {
         "component": "container",
-        "name": "test",
-        "label": "Multi Text",
+        "name": "courses",
+        "label": "Courses",
         "multi": true,
         "fields": [
           {
-            "component": "reference",
-            "name": "image",
-            "label": "Sample Image",
-            "valueType": "string"
-          },
-          {
             "component": "text",
-            "name": "alt",
-            "label": "Alt Text",
-            "valueType": "string"
+            "valueType": "string",
+            "name": "courseId",
+            "label": "Course ID",
+            "value": ""
           }
         ]
       }
