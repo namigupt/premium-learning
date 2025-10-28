@@ -138,7 +138,7 @@ function initializeOAuth() {
  */
 async function loadEager(doc) {
   // Initialize OAuth for SSO first and wait for it to complete or redirect
-  if (window.location.href.includes('.ue.') || window.location.href.includes('author-p')) {
+  if (window.location.href.includes('.ue.') || window.location.href.includes('author-p') || window.location.href.includes('localhost')) {
     // eslint-disable-next-line no-console
     console.log('In Editor Mode');
   } else {
